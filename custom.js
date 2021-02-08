@@ -6,6 +6,7 @@ searchBtn.addEventListener("click", getMealList);
 
 // get meal items according to searching
 function getMealList() {
+  document.getElementById("searchTitle").innerText = "You Searched For:";
   let searchInputTxt = document.getElementById("search-input").value;
   fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputTxt}`
