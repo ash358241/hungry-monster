@@ -34,34 +34,33 @@ function getMealList() {
         html = "Sorry, there's no meal according to your searching";
         mealList.classList.add("notFound");
       }
-
       mealList.innerHTML = html;
     });
 }
 
 //get selected item's details
-function getMealDetails(mealName) {
+const getMealDetails = (mealName) => {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealName}`)
     .then((res) => res.json())
     .then((data) => {
       getMealIngredient(data.meals[0]);
     });
-}
+};
 
-function getMealIngredient(mealName) {
+const getMealIngredient = (mealName) => {
   const foodDetail = document.getElementById("foodDetail");
 
   foodDetail.innerHTML = `
         <img src = "${mealName.strMealThumb}" alt = "">
          <h2 class = "recipe-title">${mealName.strMeal}</h2>
-        <p>Ingredient: </p>
+        <p><b>Ingredients: </b></p>
         <ul>
-        <li>${mealName.strIngredient1}</li>
-        <li>${mealName.strIngredient2}</li>
-        <li>${mealName.strIngredient3}</li>
-        <li>${mealName.strIngredient4}</li>
-        <li>${mealName.strIngredient5}</li>
-        <li>${mealName.strIngredient6}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient1}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient2}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient3}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient4}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient5}</li>
+        <li><i class="fas fa-check-circle icon"></i>${mealName.strIngredient6}</li>
        
     `;
-}
+};
