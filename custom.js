@@ -36,6 +36,8 @@ function getMealList() {
       }
       mealList.innerHTML = html;
     });
+
+  document.getElementById("foodDetail").innerHTML = "";
 }
 
 //get selected item's details
